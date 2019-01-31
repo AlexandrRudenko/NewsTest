@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VJetTest</string>
+    <string name="fragment_title_articles">Articles</string>
+    <string name="fragment_title_favorites">Favorites</string>
 </resources>
