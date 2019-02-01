@@ -2,4 +2,33 @@
     <string name="app_name">VJetTest</string>
     <string name="fragment_title_articles">Articles</string>
     <string name="fragment_title_favorites">Favorites</string>
+
+    <string name="btn_retry">Retry</string>
+    <string name="error_msg">Error</string>
+    <string name="error_msg_timeout">The server took too long to respond</string>
+    <string name="error_msg_no_internet">Not connected to internet</string>
+    <string name="error_msg_unknown">Unknown error</string>
+    <string name="click_to_reload">Tap to reload</string>
+
+    <string name="content_description_post_image">Image</string>
+
+    <string-array name="sort_by_items">
+        <item>Date</item>
+        <item>Popularity</item>
+    </string-array>
+
+    <string name="label_sort_by">Sort</string>
+    <string name="label_date_from">Date from</string>
+    <string name="label_date_to">Date to</string>
+    <string name="btn_date_from">From</string>
+    <string name="btn_date_to">To</string>
+
+
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_search">Search</string>
+    <string name="btn_reset">Reset</string>
+
+    <string name="need_select_source">Select at least one source</string>
+    <string name="empty_list">No articles</string>
+
 </resources>
