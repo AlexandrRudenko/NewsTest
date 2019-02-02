@@ -6,7 +6,9 @@ import com.rudenko.alexandr.vjettest.data.Article
 import com.rudenko.alexandr.vjettest.data.Source
 import com.rudenko.alexandr.vjettest.data.sources.DataSource
 import com.rudenko.alexandr.vjettest.data.sources.SearchParameters
+import io.reactivex.Completable
 import io.reactivex.Single
+import java.lang.UnsupportedOperationException
 import java.text.SimpleDateFormat
 import javax.inject.Inject
 
@@ -38,4 +40,10 @@ class RemoteDataSource @Inject constructor(
             pageSize
         ).map { it.articles }
     }
+
+    override fun getFavorites(): Single<List<Article>> = throw UnsupportedOperationException()
+
+    override fun saveArticleToFavorites(article: Article): Completable = throw UnsupportedOperationException()
+
+    override fun removeArticleFromFavorites(article: Article): Completable = throw UnsupportedOperationException()
 }

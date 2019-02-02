@@ -27,4 +27,20 @@ class AppRepositoryImpl @Inject constructor(
         remoteDataSource.getArticles(searchParameters, page, pageSize)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+
+    override fun getFavorites(): Single<List<Article>> =
+        localDataSource.getFavorites()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
+    override fun saveArticleToFavorites(article: Article) =
+        localDataSource.saveArticleToFavorites(article)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
+    override fun removeArticleFromFavorites(article: Article) =
+        localDataSource.removeArticleFromFavorites(article)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
 }

@@ -10,13 +10,13 @@ data class Article(
     var source: Source,
 
     @SerializedName("author")
-    var author: String,
+    var author: String?,
 
     @SerializedName("title")
     var title: String,
 
     @SerializedName("description")
-    var description: String,
+    var description: String?,
 
     @SerializedName("url")
     var url: String,

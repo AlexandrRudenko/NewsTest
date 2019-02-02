@@ -75,7 +75,8 @@ class SearchParametersDialogFragment : DialogFragment() {
         }
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = SourcesAdapter(searchParameters?.sources ?: ArrayList())
+        recyclerView.adapter =
+                SourcesAdapter(searchParameters?.sources ?: ArrayList())
 
         date_from.setOnClickListener {
             val selected = searchParameters?.from ?: Calendar.getInstance()

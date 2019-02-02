@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.item_article.*
 import kotlinx.android.synthetic.main.item_loading.*
 
 class ArticlesAdapter(
+    private val onItemClick: (item: Article) -> Unit,
+    private val onShareClick: (item: Article) -> Unit,
+    private val onSaveClick: (item: Article) -> Unit,
     private val onRetryClick: () -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -80,7 +83,7 @@ class ArticlesAdapter(
         notifyItemChanged(itemCount-1)
     }
 
-    class ArticleViewHolder(
+    internal inner class ArticleViewHolder(
         override val containerView: View
     ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
@@ -88,13 +91,28 @@ class ArticlesAdapter(
             source.text = item.source.name
             time.text = DateFormatter.format(item.publishedAt)
             title.text = item.title
+
             if (item.urlToImage.isNullOrEmpty()) {
                 image.visibility = GONE
             } else {
                 Picasso.get().load(item.urlToImage).into(image)
                 image.visibility = VISIBLE
             }
+
+            if (item.description.isNullOrEmpty()) {
+                description.visibility = GONE
+            } else {
+                description.text = item.description
+                description.visibility = VISIBLE
+            }
+
             description.text = item.description
+            saveBtn.visibility = VISIBLE
+
+
+            containerView.setOnClickListener { onItemClick(item) }
+            shareBtn.setOnClickListener { onShareClick(item) }
+            saveBtn.setOnClickListener { onSaveClick(item) }
         }
     }
 

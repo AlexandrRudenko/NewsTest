@@ -31,19 +31,17 @@ class ArticlesFragment : Fragment(), ArticlesContract.View, OnFragmentSelectedLi
     protected lateinit var presenter: ArticlesContract.Presenter
     private lateinit var adapter: ArticlesAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-        App.instance.component.inject(this)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_articles, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        App.instance.component.inject(this)
 
         adapter = ArticlesAdapter(
+            onItemClick = { presenter.onArticleClick(it) },
+            onShareClick = { presenter.onShareClick(it) },
+            onSaveClick = { presenter.onSaveClick(it) },
             onRetryClick = { presenter.onDownScrolled() }
         )
         val layoutManager = LinearLayoutManager(context)
@@ -143,5 +141,13 @@ class ArticlesFragment : Fragment(), ArticlesContract.View, OnFragmentSelectedLi
 
     override fun showSearchButton() {
         searchButton.show()
+    }
+
+    override fun openArticleDetails(item: Article) {
+
+    }
+
+    override fun shareArticle(item: Article) {
+
     }
 }

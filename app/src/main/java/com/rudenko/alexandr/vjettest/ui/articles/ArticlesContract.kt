@@ -30,6 +30,10 @@ interface ArticlesContract {
 
         fun showLoadingMoreError(@StringRes resId: Int)
 
+        fun openArticleDetails(item: Article)
+
+        fun shareArticle(item: Article)
+
     }
 
     interface Presenter : BasePresenter<View> {
@@ -41,6 +45,12 @@ interface ArticlesContract {
         fun onClickSearch()
 
         fun onSearchParametersChanged(searchParameters: SearchParameters)
+
+        fun onArticleClick(item: Article)
+
+        fun onShareClick(item: Article)
+
+        fun onSaveClick(item: Article)
 
     }
 }

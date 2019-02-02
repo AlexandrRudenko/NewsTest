@@ -1,5 +1,6 @@
 package com.rudenko.alexandr.vjettest.di
 
+import com.rudenko.alexandr.vjettest.App
 import com.rudenko.alexandr.vjettest.Const
 import com.rudenko.alexandr.vjettest.data.sources.DataSource
 import com.rudenko.alexandr.vjettest.data.sources.local.LocalDataSource
@@ -52,6 +53,6 @@ class ModelModule {
     @Provides
     @Singleton
     @Named("LOCAL")
-    fun provideLocalDataSource(): DataSource = LocalDataSource()
+    fun provideLocalDataSource(): DataSource = LocalDataSource(App.instance.database.favoritesDao())
 
 }

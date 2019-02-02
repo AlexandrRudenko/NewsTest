@@ -80,6 +80,19 @@ class ArticlesPresenter @Inject constructor(
         loadData(true)
     }
 
+    override fun onArticleClick(item: Article) {
+        getView()?.openArticleDetails(item)
+    }
+
+    override fun onShareClick(item: Article) {
+        getView()?.shareArticle(item)
+    }
+
+    override fun onSaveClick(item: Article) {
+        repository.saveArticleToFavorites(item)
+            .subscribe()
+    }
+
     private fun init() {
         getView()?.showFullscreenLoading()
 

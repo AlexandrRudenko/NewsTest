@@ -1,11 +1,9 @@
 package com.rudenko.alexandr.vjettest.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import com.rudenko.alexandr.vjettest.R
-import com.rudenko.alexandr.vjettest.ui.articles.ArticlesFragment
-import com.rudenko.alexandr.vjettest.ui.favorites.FavoritesFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,9 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = MainPagerAdapter(
             supportFragmentManager,
-            baseContext,
-            ArticlesFragment.newInstance(),
-            FavoritesFragment.newInstance()
+            baseContext
         )
         viewPager.adapter = adapter
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -32,7 +28,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                (adapter.getItem(position) as OnFragmentSelectedListener).onFragmentSelected()
+                adapter.getFragmentAtPosition(position)?.let {
+                    (it as OnFragmentSelectedListener).onFragmentSelected()
+                }
+
             }
         })
 

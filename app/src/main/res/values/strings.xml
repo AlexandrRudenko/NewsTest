@@ -11,6 +11,9 @@
     <string name="click_to_reload">Tap to reload</string>
 
     <string name="content_description_post_image">Image</string>
+    <string name="content_description_save">Save</string>
+    <string name="content_description_remove">Remove</string>
+    <string name="content_description_share">Share</string>
 
     <string-array name="sort_by_items">
         <item>Date</item>
