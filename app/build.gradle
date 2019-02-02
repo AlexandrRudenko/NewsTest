@@ -38,6 +38,7 @@ dependencies {
     implementation "com.android.support:exifinterface:$supportLibraryVersion"
     implementation "com.android.support:swiperefreshlayout:$supportLibraryVersion"
     implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    implementation "com.android.support:customtabs:$supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
 
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"

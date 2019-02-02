@@ -1,7 +1,9 @@
 package com.rudenko.alexandr.vjettest.ui.favorites
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.support.customtabs.CustomTabsIntent
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -66,7 +68,12 @@ class FavoritesFragment : Fragment(), FavoritesContract.View, OnFragmentSelected
     }
 
     override fun openArticleDetails(item: Article) {
-
+        val customTabsIntent = CustomTabsIntent.Builder()
+            .setShowTitle(true)
+            .setToolbarColor(resources.getColor(R.color.colorPrimary))
+            .enableUrlBarHiding()
+            .build()
+        customTabsIntent.launchUrl(context, Uri.parse(item.url))
     }
 
     override fun shareArticle(item: Article) {

@@ -2,8 +2,11 @@ package com.rudenko.alexandr.vjettest.ui.articles
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.support.customtabs.CustomTabsIntent
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat.getColor
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import android.view.View.GONE
@@ -144,7 +147,14 @@ class ArticlesFragment : Fragment(), ArticlesContract.View, OnFragmentSelectedLi
     }
 
     override fun openArticleDetails(item: Article) {
-
+        context?.let {
+            val customTabsIntent = CustomTabsIntent.Builder()
+                .setShowTitle(true)
+                .setToolbarColor(getColor(it, R.color.colorPrimary))
+                .enableUrlBarHiding()
+                .build()
+            customTabsIntent.launchUrl(it, Uri.parse(item.url))
+        }
     }
 
     override fun shareArticle(item: Article) {
