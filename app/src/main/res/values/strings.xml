@@ -34,4 +34,6 @@
     <string name="need_select_source">Select at least one source</string>
     <string name="empty_list">No articles</string>
 
+    <string name="share_chooser_title">Share</string>
+
 </resources>

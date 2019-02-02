@@ -1,5 +1,6 @@
 package com.rudenko.alexandr.vjettest.ui.favorites
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -69,7 +70,12 @@ class FavoritesFragment : Fragment(), FavoritesContract.View, OnFragmentSelected
     }
 
     override fun shareArticle(item: Article) {
+        val intent = Intent()
+        intent.action = Intent.ACTION_SEND
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, item.url)
 
+        startActivity(Intent.createChooser(intent, getString(R.string.share_chooser_title)))
     }
 
     override fun showEmpty() {

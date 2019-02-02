@@ -148,6 +148,11 @@ class ArticlesFragment : Fragment(), ArticlesContract.View, OnFragmentSelectedLi
     }
 
     override fun shareArticle(item: Article) {
+        val intent = Intent()
+        intent.action = Intent.ACTION_SEND
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, item.url)
 
+        startActivity(Intent.createChooser(intent, getString(R.string.share_chooser_title)))
     }
 }
